@@ -154,14 +154,19 @@ cd Director
 
 **2. Run the setup script:**
 
-```bash
-./setup.sh
-```
+- **For macOS and Linux:**
+  ```bash
+  ./setup.sh
+  ```
+- **For Windows:**
+  ```bat
+  setup.bat
+  ```
 
-> This script will:
-> - Install Node.js 22.8.0 using nvm
-> - Install Python and pip
-> - Set up virtual environments for both frontend and backend.
+> These scripts will:
+> - Check for dependencies and guide you if they are missing.
+> - Set up virtual environments for both the frontend and backend.
+> - Install all required packages.
 
 
 
@@ -172,7 +177,7 @@ Edit the `.env` files to add your API keys and other configuration options.
 ### Supported platforms: 
 - Mac
 - Linux
-- Windows (WSL)
+- Windows
 
 ## 💬 Running the Application
 

@@ -78,6 +78,12 @@ if %errorlevel% neq 0 (
 echo [INFO] Activating virtual environment and installing dependencies...
 call .\\venv\\Scripts\\activate.bat
 
+echo [INFO] Upgrading pip, setuptools, and wheel...
+python -m pip install --upgrade pip setuptools wheel
+if %errorlevel% neq 0 (
+    echo [WARNING] Failed to upgrade pip. Continuing with setup...
+)
+
 pip install -r requirements.txt
 if %errorlevel% neq 0 (
     echo [ERROR] Failed to install backend dependencies from requirements.txt.
@@ -124,6 +130,12 @@ if %errorlevel% neq 0 (
     echo [ERROR] Failed to install frontend dependencies.
     cd ..
     goto :eof
+)
+
+echo [INFO] Updating frontend dependencies...
+npm update
+if %errorlevel% neq 0 (
+    echo [WARNING] Failed to update frontend dependencies. Continuing with setup...
 )
 
 echo [INFO] Creating frontend .env file...
